@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { PulseEvent } from "@/components/PulseEvent";
 import { describeStatus, type PatientStatus, type StatusResponse } from "@/lib/patientStatus";
 import { COME_BACK_AT, stepOutAdvice } from "@/lib/stepOut";
 import { createClient } from "@/lib/supabase/server";
@@ -26,9 +27,12 @@ function Advice({ ahead }: { ahead: number }) {
   const advice = stepOutAdvice(ahead);
   if (advice === "step-out") {
     return (
-      <p className="mt-[18px] border-l-[3px] border-primary py-1 pl-3.5 text-[15px]">
-        You can step out. Come back when {COME_BACK_AT} patients are ahead; this page will tell you.
-      </p>
+      <>
+        <PulseEvent name="step_out_advice_seen" />
+        <p className="mt-[18px] border-l-[3px] border-primary py-1 pl-3.5 text-[15px]">
+          You can step out. Come back when {COME_BACK_AT} patients are ahead; this page will tell you.
+        </p>
+      </>
     );
   }
   return (
@@ -82,6 +86,7 @@ function Body({ status }: { status: PatientStatus }) {
           data-testid="status-message"
           className="fixed inset-0 z-50 flex flex-col justify-center bg-success p-7 text-white animate-in slide-in-from-bottom duration-500 motion-reduce:animate-none"
         >
+          <PulseEvent name="called_in" />
           <p className="token-type text-[120px]">{status.token}</p>
           <h2 className="mt-4 mb-2.5 text-[44px] leading-[1.05]">Please go in now</h2>
           <p className="text-[17px] opacity-90">The doctor is ready to see you.</p>
@@ -126,6 +131,8 @@ export default async function StatusPage({ params }: { params: Promise<{ code: s
 
   return (
     <section className="mx-auto flex min-h-[calc(100dvh-4.5rem)] max-w-md flex-col py-[22px]">
+      {/* usage measurement: only the event name is sent, never this page's private link */}
+      <PulseEvent name="status_viewed" />
       <span className="text-sm text-muted-foreground">Your token</span>
       <h1 data-testid="status-token" className="token-type mt-1 text-[104px] text-primary">
         {status.token}

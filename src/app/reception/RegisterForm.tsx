@@ -7,6 +7,7 @@ import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
+import { track } from "@/lib/pulse";
 import { cn } from "@/lib/utils";
 import { registerPatient, type RegisterState } from "./actions";
 import { TokenCard } from "./TokenCard";
@@ -154,7 +155,10 @@ export function RegisterForm() {
 
   // A small confirmation, in case the receptionist is looking at the patient, not the screen.
   useEffect(() => {
-    if (state.issued && !state.values) toast.success(`Token ${state.issued.token} issued`);
+    if (state.issued && !state.values) {
+      toast.success(`Token ${state.issued.token} issued`);
+      track("patient_registered");
+    }
   }, [state]);
 
   return (

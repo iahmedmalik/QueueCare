@@ -3,7 +3,7 @@
 import { usePathname } from "next/navigation";
 import { LogoMark } from "@/components/Logo";
 import { requiredRole } from "@/lib/access";
-import { PUBLIC_LINKS } from "@/lib/links";
+import { FOOTER_LINKS } from "@/lib/links";
 
 /** The footer on public pages. Staff screens and patients' status pages leave it out, as in the approved design. */
 export function SiteFooter() {
@@ -18,7 +18,7 @@ export function SiteFooter() {
           <span className="text-muted-foreground">QueueCare, a live queue for small clinics</span>
         </span>
         <ul className="flex flex-wrap gap-x-6 gap-y-2">
-          {PUBLIC_LINKS.map((link) => (
+          {FOOTER_LINKS.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}

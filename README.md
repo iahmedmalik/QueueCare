@@ -125,6 +125,10 @@ Measured, not estimated. QueueCare has not yet been used by a real clinic, so th
 - Bring live updates back under 1 second on every browser: v1.1 measured 1.4 s in Chrome (v1.0: 0.9 s), possibly because the new header reads from the database on every refresh
 - Say "Under 5 min" consistently when an estimate starts at 0 (the token slip currently says "About 0–5 min")
 
+## Measuring its own use
+
+QueueCare can count how it is used with [PulseMetrics](https://github.com/ahmed-malikk/PulseMetrics), a small analytics tool that never learns who did something. It sends four fixed event names (`status_viewed`, `step_out_advice_seen`, `called_in`, `patient_registered`) and a random browser id, and nothing else: never a page address (a patient's link is private), a name or a health detail. It is off unless three settings are present at build time (`NEXT_PUBLIC_PULSE_KEY`, `NEXT_PUBLIC_PULSE_SRC`, `NEXT_PUBLIC_PULSE_API`). A browser test checks that a patient's private link is never sent, and the [privacy page](src/app/privacy/page.tsx) says what is counted.
+
 ## Run locally
 
 1. Create a Supabase project. In its SQL Editor, run `supabase/migrations/001_init.sql`, `002_patient_status.sql` and `003_waiting_room.sql`, create the two demo users in Authentication, then run `supabase/seed/demo.sql`.

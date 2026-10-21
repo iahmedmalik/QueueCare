@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import { Manrope } from "next/font/google";
 import { SiteHeader } from "@/components/SiteHeader";
+import { PulseSnippet } from "@/components/PulseSnippet";
 import { SiteFooter } from "@/components/SiteFooter";
 import { Toaster } from "@/components/ui/sonner";
 import "./globals.css";
@@ -25,6 +26,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="mx-auto w-full max-w-[80rem] flex-1 px-4 sm:px-6">{children}</main>
         <SiteFooter />
         <Toaster position="bottom-center" />
+        <PulseSnippet />
       </body>
     </html>
   );
