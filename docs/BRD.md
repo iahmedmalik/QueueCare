@@ -195,22 +195,22 @@ Each requirement links to the user story that delivers it, the GitHub issue that
 
 | Requirement | User story | GitHub issue | Test |
 |---|---|---|---|
-| FR-1 | US-1 | [#4](https://github.com/ahmed-malikk/QueueCare/issues/4) | ST-01 |
-| FR-2 | US-2 | [#5](https://github.com/ahmed-malikk/QueueCare/issues/5) | ST-02 |
-| FR-3 | US-5 | [#8](https://github.com/ahmed-malikk/QueueCare/issues/8) | ST-05 |
-| FR-4 | US-3 | [#3](https://github.com/ahmed-malikk/QueueCare/issues/3), [#6](https://github.com/ahmed-malikk/QueueCare/issues/6) | UT-01 to UT-06, ST-03 |
-| FR-5 | US-3 | [#6](https://github.com/ahmed-malikk/QueueCare/issues/6) | ST-03 |
-| FR-6 | US-4 | [#7](https://github.com/ahmed-malikk/QueueCare/issues/7) | UT-01, ST-04 |
-| FR-7 | US-4 | [#7](https://github.com/ahmed-malikk/QueueCare/issues/7) | ST-04 |
-| FR-8 | US-5 | [#3](https://github.com/ahmed-malikk/QueueCare/issues/3), [#8](https://github.com/ahmed-malikk/QueueCare/issues/8) | UT-07, ST-05 |
-| FR-9 | US-6 | [#9](https://github.com/ahmed-malikk/QueueCare/issues/9) | ST-06 |
-| FR-10 | US-7 | [#10](https://github.com/ahmed-malikk/QueueCare/issues/10) | ST-07 |
-| FR-11 | US-8 | [#11](https://github.com/ahmed-malikk/QueueCare/issues/11) | ST-08 |
-| FR-12 | US-9 | [#12](https://github.com/ahmed-malikk/QueueCare/issues/12) | UT-08, ST-09 |
-| NFR-4 privacy | US-5, US-6 | [#8](https://github.com/ahmed-malikk/QueueCare/issues/8), [#9](https://github.com/ahmed-malikk/QueueCare/issues/9) | ST-05, ST-06 |
-| NFR-5 security | US-1 | [#2](https://github.com/ahmed-malikk/QueueCare/issues/2), [#4](https://github.com/ahmed-malikk/QueueCare/issues/4) | ST-01 |
+| FR-1 | US-1 | [#4](https://github.com/iahmedmalik/QueueCare/issues/4) | ST-01 |
+| FR-2 | US-2 | [#5](https://github.com/iahmedmalik/QueueCare/issues/5) | ST-02 |
+| FR-3 | US-5 | [#8](https://github.com/iahmedmalik/QueueCare/issues/8) | ST-05 |
+| FR-4 | US-3 | [#3](https://github.com/iahmedmalik/QueueCare/issues/3), [#6](https://github.com/iahmedmalik/QueueCare/issues/6) | UT-01 to UT-06, ST-03 |
+| FR-5 | US-3 | [#6](https://github.com/iahmedmalik/QueueCare/issues/6) | ST-03 |
+| FR-6 | US-4 | [#7](https://github.com/iahmedmalik/QueueCare/issues/7) | UT-01, ST-04 |
+| FR-7 | US-4 | [#7](https://github.com/iahmedmalik/QueueCare/issues/7) | ST-04 |
+| FR-8 | US-5 | [#3](https://github.com/iahmedmalik/QueueCare/issues/3), [#8](https://github.com/iahmedmalik/QueueCare/issues/8) | UT-07, ST-05 |
+| FR-9 | US-6 | [#9](https://github.com/iahmedmalik/QueueCare/issues/9) | ST-06 |
+| FR-10 | US-7 | [#10](https://github.com/iahmedmalik/QueueCare/issues/10) | ST-07 |
+| FR-11 | US-8 | [#11](https://github.com/iahmedmalik/QueueCare/issues/11) | ST-08 |
+| FR-12 | US-9 | [#12](https://github.com/iahmedmalik/QueueCare/issues/12) | UT-08, ST-09 |
+| NFR-4 privacy | US-5, US-6 | [#8](https://github.com/iahmedmalik/QueueCare/issues/8), [#9](https://github.com/iahmedmalik/QueueCare/issues/9) | ST-05, ST-06 |
+| NFR-5 security | US-1 | [#2](https://github.com/iahmedmalik/QueueCare/issues/2), [#4](https://github.com/iahmedmalik/QueueCare/issues/4) | ST-01 |
 
-Unit (UT) and system (ST) test cases are defined in the test plan ([#13](https://github.com/ahmed-malikk/QueueCare/issues/13)). FR-13 to FR-15 are not in this version.
+Unit (UT) and system (ST) test cases are defined in the test plan ([#13](https://github.com/iahmedmalik/QueueCare/issues/13)). FR-13 to FR-15 are not in this version.
 
 ## 9. Sign-off
 

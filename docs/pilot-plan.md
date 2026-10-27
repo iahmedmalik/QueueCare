@@ -1,7 +1,7 @@
 # Pilot Plan: QueueCare at a small clinic
 
 **Author:** Ahmed Malik · **Date:** 2026-10-09 · **Status:** Planned, clinic not yet confirmed
-**Related:** [PRD §5 success metrics](PRD.md) · [Interview findings](research/interview-findings.md) · [Test report](test-report.md) · Issue [#15](https://github.com/ahmed-malikk/QueueCare/issues/15)
+**Related:** [PRD §5 success metrics](PRD.md) · [Interview findings](research/interview-findings.md) · [Test report](test-report.md) · Issue [#15](https://github.com/iahmedmalik/QueueCare/issues/15)
 
 ## 1. Goal
 

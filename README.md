@@ -2,9 +2,9 @@
 
 > Patients at small clinics in Lahore get a paper token and no idea how long they'll wait, so they stay glued to the waiting room and the receptionist answers "how much longer?" all evening. QueueCare is a live clinic queue: urgent patients are seen first, everyone else keeps their place, and every patient can follow the queue on their own phone.
 
-[![Tests](https://github.com/ahmed-malikk/QueueCare/actions/workflows/test.yml/badge.svg)](https://github.com/ahmed-malikk/QueueCare/actions/workflows/test.yml)
+[![Tests](https://github.com/iahmedmalik/QueueCare/actions/workflows/test.yml/badge.svg)](https://github.com/iahmedmalik/QueueCare/actions/workflows/test.yml)
 
-**Live:** [queuecare-zeta.vercel.app](https://queuecare-zeta.vercel.app) · **PRD:** [docs/PRD.md](docs/PRD.md) · **BRD:** [docs/BRD.md](docs/BRD.md) · **Tests:** [plan](docs/test-plan.md) · [report](docs/test-report.md) · **Pilot:** [plan](docs/pilot-plan.md) · **Lessons:** [lessons learned](docs/lessons-learned.md) · **Board:** [project](https://github.com/users/ahmed-malikk/projects/1)
+**Live:** [queuecare-zeta.vercel.app](https://queuecare-zeta.vercel.app) · **PRD:** [docs/PRD.md](docs/PRD.md) · **BRD:** [docs/BRD.md](docs/BRD.md) · **Tests:** [plan](docs/test-plan.md) · [report](docs/test-report.md) · **Pilot:** [plan](docs/pilot-plan.md) · **Lessons:** [lessons learned](docs/lessons-learned.md) · **Board:** [project](https://github.com/users/iahmedmalik/projects/1)
 
 ![The reception desk: who is with the doctor, a registration form with the token just issued and its QR code, and today's queue in priority order (demo data)](docs/screenshots/reception.png)
 
@@ -98,7 +98,7 @@ The queue is a **priority queue** ordered by three rules, applied in turn:
 ## How I ran it as a project
 
 - **Interviews before code:** one receptionist and three patients on 7 October 2026, then a [BRD](docs/BRD.md) (as-is and to-be processes, 27 requirements (5 business, 15 functional, 7 non-functional) with MoSCoW priorities, use cases, traceability) and a [PRD](docs/PRD.md) (user stories, success metrics, priority and estimate rules)
-- **38 issues** on a [GitHub Project board](https://github.com/users/ahmed-malikk/projects/1), one commit per issue, conventional commit messages, CI on every push
+- **38 issues** on a [GitHub Project board](https://github.com/users/iahmedmalik/projects/1), one commit per issue, conventional commit messages, CI on every push
 - **A code review** before committing the registration feature found 7 issues, including one no test had caught (a failed registration left the previous patient's QR code on screen); all were fixed before commit
 - **Testing:** a [test plan](docs/test-plan.md) and [test report](docs/test-report.md); nine defects found and fixed, each traced to an issue
 - **Redesign (v1.1):** a workflow review of every screen, a clickable prototype approved before building, then one issue and one commit per screen
@@ -120,14 +120,14 @@ Measured, not estimated. QueueCare has not yet been used by a real clinic, so th
 ## What I'd do next
 
 - Run the [pilot](docs/pilot-plan.md) at a small clinic and measure estimate accuracy (target: 70% of real waits inside the range)
-- Mark a called patient as missed and re-queue them ([#10](https://github.com/ahmed-malikk/QueueCare/issues/10))
-- Show estimated vs actual waits to the clinic ([#12](https://github.com/ahmed-malikk/QueueCare/issues/12)), and an optional patient account ([#11](https://github.com/ahmed-malikk/QueueCare/issues/11))
+- Mark a called patient as missed and re-queue them ([#10](https://github.com/iahmedmalik/QueueCare/issues/10))
+- Show estimated vs actual waits to the clinic ([#12](https://github.com/iahmedmalik/QueueCare/issues/12)), and an optional patient account ([#11](https://github.com/iahmedmalik/QueueCare/issues/11))
 - Bring live updates back under 1 second on every browser: v1.1 measured 1.4 s in Chrome (v1.0: 0.9 s), possibly because the new header reads from the database on every refresh
 - Say "Under 5 min" consistently when an estimate starts at 0 (the token slip currently says "About 0–5 min")
 
 ## Measuring its own use
 
-QueueCare can count how it is used with [PulseMetrics](https://github.com/ahmed-malikk/PulseMetrics), a small analytics tool that never learns who did something. It sends four fixed event names (`status_viewed`, `step_out_advice_seen`, `called_in`, `patient_registered`) and a random browser id, and nothing else: never a page address (a patient's link is private), a name or a health detail. It is off unless three settings are present at build time (`NEXT_PUBLIC_PULSE_KEY`, `NEXT_PUBLIC_PULSE_SRC`, `NEXT_PUBLIC_PULSE_API`). A browser test checks that a patient's private link is never sent, and the [privacy page](src/app/privacy/page.tsx) says what is counted.
+QueueCare can count how it is used with [PulseMetrics](https://github.com/iahmedmalik/PulseMetrics), a small analytics tool that never learns who did something. It sends four fixed event names (`status_viewed`, `step_out_advice_seen`, `called_in`, `patient_registered`) and a random browser id, and nothing else: never a page address (a patient's link is private), a name or a health detail. It is off unless three settings are present at build time (`NEXT_PUBLIC_PULSE_KEY`, `NEXT_PUBLIC_PULSE_SRC`, `NEXT_PUBLIC_PULSE_API`). A browser test checks that a patient's private link is never sent, and the [privacy page](src/app/privacy/page.tsx) says what is counted.
 
 ## Run locally
 

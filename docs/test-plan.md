@@ -1,7 +1,7 @@
 # Test Plan: QueueCare v1.0
 
 **Author:** Ahmed Malik · **Date:** 2026-10-09 · **Status:** Executed (see the [test report](test-report.md))
-**Related:** [PRD](PRD.md) · [BRD](BRD.md) · [Test report](test-report.md) · Issue [#13](https://github.com/ahmed-malikk/QueueCare/issues/13)
+**Related:** [PRD](PRD.md) · [BRD](BRD.md) · [Test report](test-report.md) · Issue [#13](https://github.com/iahmedmalik/QueueCare/issues/13)
 
 ## 1. Purpose
 

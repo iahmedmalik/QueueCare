@@ -1,7 +1,7 @@
 # Test Report: QueueCare v1.1
 
 **Author:** Ahmed Malik · **Date:** 2026-10-14 · **Build tested:** `0aca47a` (local production build and the live site)
-**Related:** [Test plan](test-plan.md) · [PRD](PRD.md) · Redesign issues [#18](https://github.com/ahmed-malikk/QueueCare/issues/18), [#26](https://github.com/ahmed-malikk/QueueCare/issues/26)–[#36](https://github.com/ahmed-malikk/QueueCare/issues/36)
+**Related:** [Test plan](test-plan.md) · [PRD](PRD.md) · Redesign issues [#18](https://github.com/iahmedmalik/QueueCare/issues/18), [#26](https://github.com/iahmedmalik/QueueCare/issues/26)–[#36](https://github.com/iahmedmalik/QueueCare/issues/36)
 
 ## v1.1: redesign of every screen
 
@@ -30,8 +30,8 @@ New system tests: ST-00.2 to ST-00.7 (header for visitors and staff, one-click d
 
 | ID | Defect | Severity | Found by | Fix |
 |---|---|---|---|---|
-| D-08 | If the register form was sent before the page's JavaScript loaded, the server rendered the token card and crashed on `window` | Medium | Server log during a system test run ([#37](https://github.com/ahmed-malikk/QueueCare/issues/37)); present since v1.0 | `750950c`: the QR link is built with `useOrigin()` |
-| D-09 | The waiting-room screen was squeezed into a strip about 64 px tall: the new page-enter animation made the page wrapper the frame for the screen's fixed panel | High | The product owner, reviewing the app ([#38](https://github.com/ahmed-malikk/QueueCare/issues/38)); the tests checked the text existed, not that it filled the screen | `18ca065`: the animation leaves nothing behind; full-screen pages skip it; new test ST-06.3 measures it |
+| D-08 | If the register form was sent before the page's JavaScript loaded, the server rendered the token card and crashed on `window` | Medium | Server log during a system test run ([#37](https://github.com/iahmedmalik/QueueCare/issues/37)); present since v1.0 | `750950c`: the QR link is built with `useOrigin()` |
+| D-09 | The waiting-room screen was squeezed into a strip about 64 px tall: the new page-enter animation made the page wrapper the frame for the screen's fixed panel | High | The product owner, reviewing the app ([#38](https://github.com/iahmedmalik/QueueCare/issues/38)); the tests checked the text existed, not that it filled the screen | `18ca065`: the animation leaves nothing behind; full-screen pages skip it; new test ST-06.3 measures it |
 
 ### Outstanding
 
@@ -76,11 +76,11 @@ The same live-update measurement on the local build was 0.9–2.7 s, because eve
 |---|---|---|---|---|
 | D-01 | After a failed registration, the previous patient's token and QR code stayed on screen next to the error, so the receptionist could give patient B patient A's QR code | High | Code review of #5, before it was committed | Fixed before commit (`6d1ca2d`): a failed attempt clears the token card |
 | D-02 | Six smaller code-review findings: link built from a request header, a read error crashing registration, "Next in line" shown when someone was ahead, a token not announced to screen readers, the clinic's time zone defined in three places, a length message contradicting the rule | Medium / Low | Code review of #5 | Fixed before commit (`6d1ca2d`) |
-| D-03 | No way back from the sign-in page except the logo | Low | Trying the app ([#17](https://github.com/ahmed-malikk/QueueCare/issues/17)) | `ec88c88` |
-| D-04 | System test patients piled up in the demo queue (44 waiting on one day) | Low | Screenshot review ([#20](https://github.com/ahmed-malikk/QueueCare/issues/20)) | `e846b27`: after each run, the tests' own patients are marked missed |
-| D-05 | A missed live-update message left a screen out of date until the next change | Medium | ST-04.1, one run in five ([#21](https://github.com/ahmed-malikk/QueueCare/issues/21)) | `b1ec808`: refresh on reconnect and every 30 s |
-| D-06 | Staff screens showed "Staff" instead of a way home | Low | Trying the app ([#22](https://github.com/ahmed-malikk/QueueCare/issues/22)) | `8643360` |
-| D-07 | Sign-in said "wrong password" for every failure (including too many attempts and connection problems), and signing out ended the account's session on every device, so one demo visitor's sign-out signed out everyone | High | Investigating an ST-01.3 failure ([#23](https://github.com/ahmed-malikk/QueueCare/issues/23)) | `adb645e`: real reasons shown; sign out ends only this browser's session |
+| D-03 | No way back from the sign-in page except the logo | Low | Trying the app ([#17](https://github.com/iahmedmalik/QueueCare/issues/17)) | `ec88c88` |
+| D-04 | System test patients piled up in the demo queue (44 waiting on one day) | Low | Screenshot review ([#20](https://github.com/iahmedmalik/QueueCare/issues/20)) | `e846b27`: after each run, the tests' own patients are marked missed |
+| D-05 | A missed live-update message left a screen out of date until the next change | Medium | ST-04.1, one run in five ([#21](https://github.com/iahmedmalik/QueueCare/issues/21)) | `b1ec808`: refresh on reconnect and every 30 s |
+| D-06 | Staff screens showed "Staff" instead of a way home | Low | Trying the app ([#22](https://github.com/iahmedmalik/QueueCare/issues/22)) | `8643360` |
+| D-07 | Sign-in said "wrong password" for every failure (including too many attempts and connection problems), and signing out ended the account's session on every device, so one demo visitor's sign-out signed out everyone | High | Investigating an ST-01.3 failure ([#23](https://github.com/iahmedmalik/QueueCare/issues/23)) | `adb645e`: real reasons shown; sign out ends only this browser's session |
 
 **Test-suite problems (not product defects).** Running the three browser profiles in parallel made them change each other's data in the shared demo queue and overloaded the single local server with live refreshes, so browser windows sometimes hung while closing. Tests now run one at a time and always close their extra windows (`4710f4d`); the full suite also got faster (about 4 minutes).
 

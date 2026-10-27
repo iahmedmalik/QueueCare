@@ -75,4 +75,4 @@ What building, testing and shipping QueueCare taught me, and what I'm changing f
 - The pilot at a real clinic ([pilot plan](pilot-plan.md))
 - The manual check with a real phone camera (test report MT-01, MT-02)
 - The gist check (three checkpoint questions from the portfolio plan)
-- Should stories for v1.1: [#10](https://github.com/ahmed-malikk/QueueCare/issues/10), [#11](https://github.com/ahmed-malikk/QueueCare/issues/11), [#12](https://github.com/ahmed-malikk/QueueCare/issues/12)
+- Should stories for v1.1: [#10](https://github.com/iahmedmalik/QueueCare/issues/10), [#11](https://github.com/iahmedmalik/QueueCare/issues/11), [#12](https://github.com/iahmedmalik/QueueCare/issues/12)
