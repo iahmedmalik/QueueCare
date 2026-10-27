@@ -172,10 +172,17 @@
   animation: page-enter 300ms var(--ease-out-soft) backwards;
 }
 
+/* Reduced motion: nothing travels, but a page, a new token and a message still fade in, so the change is seen. */
+@keyframes fade-in {
+  from { opacity: 0; }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .slip-print,
   .page-enter,
-  [role="alert"] { animation: none; }
+  [role="alert"] { animation: fade-in 200ms linear backwards; }
+  /* this block sits outside the layer above, so it would win over the full-screen exception: repeat it */
+  .page-enter:has([data-fullscreen]) { animation: none; }
 }
 
 /* "Print token" (PrintTokenButton): the slip is hidden on screen. While printing, only the slip

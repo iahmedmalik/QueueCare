@@ -103,3 +103,13 @@ test("ST-00.6 the footer's Privacy link opens inside the app, without reloading 
   expect(await page.evaluate(() => (window as unknown as { __stay?: boolean }).__stay)).toBe(true);
   await expect(page.locator(".page-enter")).toHaveCSS("animation-name", "page-enter");
 });
+
+test.describe("with reduced motion", () => {
+  test.use({ reducedMotion: "reduce" });
+  test("ST-00.7 pages fade in instead of rising, and the waiting-room display still has none (#48)", async ({ page }) => {
+    await page.goto("/");
+    await expect(page.locator(".page-enter")).toHaveCSS("animation-name", "fade-in");
+    await page.goto("/display");
+    await expect(page.locator(".page-enter")).toHaveCSS("animation-name", "none");
+  });
+});
