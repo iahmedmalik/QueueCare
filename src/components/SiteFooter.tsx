@@ -1,5 +1,6 @@
 "use client";
 
+import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { LogoMark } from "@/components/Logo";
 import { requiredRole } from "@/lib/access";
@@ -20,13 +21,16 @@ export function SiteFooter() {
         <ul className="flex flex-wrap gap-x-6 gap-y-2">
           {FOOTER_LINKS.map((link) => (
             <li key={link.href}>
-              <a
-                href={link.href}
-                className="hover:text-foreground"
-                {...(link.external ? { target: "_blank", rel: "noreferrer" } : {})}
-              >
-                {link.label}
-              </a>
+              {/* Internal pages open inside the app (so the page-enter motion plays); outside links open a new tab. */}
+              {link.external ? (
+                <a href={link.href} className="hover:text-foreground" target="_blank" rel="noreferrer">
+                  {link.label}
+                </a>
+              ) : (
+                <Link href={link.href} className="hover:text-foreground">
+                  {link.label}
+                </Link>
+              )}
             </li>
           ))}
         </ul>

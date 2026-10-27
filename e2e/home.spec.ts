@@ -93,3 +93,13 @@ test("ST-00.8 rows in the home animation stay on one line, even with an Emergenc
   // One line is about 37 px; a wrapped "Walk-in" made the row about 55 px.
   for (const height of heights) expect(height).toBeLessThan(45);
 });
+
+test("ST-00.6 the footer's Privacy link opens inside the app, without reloading it (#47)", async ({ page }) => {
+  await page.goto("/");
+  await page.evaluate(() => ((window as unknown as { __stay: boolean }).__stay = true));
+  await page.getByRole("contentinfo").getByRole("link", { name: "Privacy" }).click();
+  await expect(page).toHaveURL(/\/privacy$/);
+  // a full page load would have wiped the marker
+  expect(await page.evaluate(() => (window as unknown as { __stay?: boolean }).__stay)).toBe(true);
+  await expect(page.locator(".page-enter")).toHaveCSS("animation-name", "page-enter");
+});
